@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/*
+*   Auteur: Cédric Devost
+*   Date: 2018-12-03
+*   Description: Fichier SCSS pour le TP2
+*/
+/*VARIABLES POUR LA COULEUR DE CERTAINS ÉLÉMENTS*/
+/*VARIABLES POUR LES BORDURES ET LES ARGUMENTS DES DISPLAYS*/
+/*MIXIN POUR AFFECTER LE DISPLAY FLEX ET LA DIRECTION*/
+/*MIXIN POUR AFECTER UN TEXTE SHADOW*/
+/*MIXIN POUR les transition 3D*/
+/*******************************Début SCSS*/
+/*******************************Mise en page générale*/
+/*******************************Mise en page spécifique pour les fenêtre de plus de 960px également*/
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0 auto;
+  background-image: url("../images/backIndex.jpg");
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: -20px;
+  text-shadow: 2px 2px black;
+}
+
+/*******************************Mise en page Navigation*/
+a {
+  color: white;
+}
+
+.active {
+  color: aquamarine;
+  text-shadow: 2px 2px red;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+li {
+  margin: 20px 20px;
+}
+
+li a {
+  text-decoration: none;
+  display: inline-block;
+  height: 20px;
+  text-shadow: 0px 0px white;
+  transition: text-shadow 0.3s;
+}
+
+li a:hover {
+  color: aquamarine;
+  text-shadow: 2px 2px red;
+  transition: text-shadow 0.3s;
+}
+
+/*******************************Mise en page Section 1*/
+main section:nth-child(1) h2 {
+  margin-bottom: 0px;
+}
+
+main section:nth-child(1) article p {
+  font-size: 1.3em;
+  margin: 0 55px 55px 55px;
+  text-shadow: 2px 2px black;
+}
+
+main section:nth-child(1) article a {
+  text-decoration: none;
+  font-size: 2em;
+  background-color: aquamarine;
+  padding: 0 25px;
+  border-radius: 25px;
+  transition: padding 0.3s;
+}
+
+main section:nth-child(1) article a:hover {
+  color: red;
+  padding: 10px 40px;
+  transition: padding 0.3s;
+}
+
+/*******************************Mise en page Section 2*/
+main section:nth-child(2) {
+  background-color: #687E5A;
+  height: 100%;
+  padding: 1px 20px 50px;
+  text-shadow: 2px 2px black;
+}
+
+main section:nth-child(2) div {
+  display: flex;
+  flex-direction: row;
+}
+
+/*******************************Mise en page Section 3*/
+main section:nth-child(3) {
+  color: black;
+  perspective: 1000px;
+}
+
+main section:nth-child(3) div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+main section:nth-child(3) div:nth-child(1) div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+main section:nth-child(3) div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+main section:nth-child(3) div:nth-child(2) div {
+  display: flex;
+  flex-direction: column;
+}
+
+main section:nth-child(3) div div aside {
+  display: flex;
+  flex-direction: row;
+}
+
+/******************************************Section responsable de la ROTATION des images à l'hover*/
+main section:nth-child(3) div img {
+  width: 60px;
+  border-radius: 30px;
+  transform: rotateY(0deg);
+  transition: 0.6s;
+  transform-style: preserve-3D;
+}
+
+main section:nth-child(3) div img:hover {
+  transform: rotateY(180deg);
+  transition: 0.6s;
+  transform-style: preserve-3D;
+}
+
+/*******************************Mise en page pour les pages Tarifs et Chambre*/
+#chambre {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  background-color: rgba(104, 126, 90, 0.66);
+  padding: 0 0 20px 20px;
+  text-shadow: 2px 2px black;
+}
+
+#chambre div article div:nth-child(2) {
+  display: none;
+}
+
+#chambre div article div:nth-child(1) {
+  display: flex;
+}
+
+main section:nth-child(1) div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+main section:nth-child(1) div:nth-child(2) ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+main section:nth-child(1) div:nth-child(2) ul li {
+  padding: 0;
+  margin: 0 20px;
+  border-bottom: 1px solid white;
+}
+
+main section:nth-child(1) div:nth-child(2) aside {
+  display: flex;
+  flex-direction: row;
+}
+
+/*******************************Mise en page concernant les tableaux*/
+table:nth-child(1) {
+  border: 1px solid black;
+  text-shadow: none;
+}
+
+th,
+td {
+  padding: 20px;
+}
+
+th,
+td:first-child {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: beige;
+  color: #000d1a;
+}
+
+tr:nth-child(1n+1) {
+  background-color: #000d1a;
+}
+
+/*******************************Mise en page concernant la page Contact*/
+#contact {
+  width: 100px;
+  transform: rotate(90deg);
+}
+
+/*******************************Mise en page du Footer*/
+footer {
+  background-color: #000d1a;
+}
+
+footer section:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+footer section:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
+footer section:nth-child(2) aside {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+footer section:nth-child(2) aside p {
+  border-bottom: 1px solid white;
+}
+
+footer section:nth-child(2) aside a {
+  border-right: 1px solid white;
+  text-align: left;
+}
+
+footer section:nth-child(2) aside a:hover {
+  border-right: 1px solid #000d1a;
+}
+
+footer section:nth-child(2) aside p:nth-child(3) {
+  border-bottom: none;
+}
+
+/*******************************Mise en page spécifique pour les fenêtre de maximum 960px*/
+@media screen and (max-width: 960px) {
+  /*******************************Mise en page générale*/
+  main section:nth-child(1) {
+    background-color: rgba(104, 126, 90, 0.66);
+  }
+
+  /*******************************Mise en page Navigation*/
+  ul {
+    flex-direction: column;
+  }
+
+  /*******************************Mise en page Pages chambres et tarifs*/
+  #chambre {
+    flex-direction: column;
+  }
+
+  #chambre div article div:nth-child(1) {
+    display: none;
+  }
+
+  #chambre div article div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #chambre div:nth-child(2) {
+    flex-direction: row;
+  }
+
+  /*******************************Mise en page des tableaux*/
+  #chambre div article div:nth-child(2) table td {
+    width: 200px;
+  }
+
+  #chambre div article div:nth-child(2) table {
+    border: none;
+  }
+
+  table:nth-child(2) {
+    border: 1px solid black;
+    text-shadow: none;
+  }
+
+  table:nth-child(3) {
+    border: 1px solid black;
+    text-shadow: none;
+  }
+
+  /*******************************Mise en page de la Section 2*/
+  main section:nth-child(2) div {
+    flex-direction: column;
+  }
+
+  /*******************************Mise en page de la Section 3*/
+  main section:nth-child(3) div:nth-child(1) {
+    flex-direction: column;
+  }
+
+  main section:nth-child(3) div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  /*******************************Mise en page du Footer*/
+  footer section:nth-child(1) {
+    flex-direction: column;
+  }
+}
+/*******************************Mise en page spécifique pour les fenêtre de maximum 480px*/
+@media screen and (max-width: 480px) {
+  /*******************************Mise en page Pages chambres et tarifs*/
+  #chambre div article div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  #chambre div:nth-child(2) aside {
+    flex-direction: column;
+  }
+
+  #chambre div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  /****************************** Resonsable de l'Arrêt de la rotation 3D*/
+  main section:nth-child(3) div img:hover {
+    transform: rotateY(0deg);
+  }
+
+  /*******************************Mise en page Footer*/
+  footer section:nth-child(2) {
+    flex-direction: column;
+    padding-left: 70px;
+  }
+}

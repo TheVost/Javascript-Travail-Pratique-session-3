@@ -1,0 +1,217 @@
+/**
+*   Auteur: Cédric Devost
+*   Description: Fichier CSS pour le TP2 de JS2
+*   Fichier: styles.css
+*   Date: 2019-04-21
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+/*------------------------------------------------------------------------------------------Entête*/
+#tete{
+    background-color: floralwhite;
+    padding-top: 20px;
+    background-image: url(image/logo.png);
+    background-size: 470px;
+    font-size: 1.3em;
+    text-shadow: 2px 2px white;
+    padding-bottom: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em;
+    font-family: fantasy;
+    color: black;
+    text-shadow: 2px 2px white, 4px 4px black, 6px 6px red;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    height: 70px;
+    border-bottom: 1px solid black;
+}
+
+nav div:nth-child(1) {
+    float: left;
+    margin-left: 100px;
+}
+
+nav div:nth-child(2) {
+    float: right;
+    margin-right: 100px;
+    margin-top: 40px;
+}
+
+/*-----------------------------------------------------------------------------------------Main*/
+main {
+    height: 100%;
+    padding: 0;
+}
+
+article header {
+    font-size: 1.7em;
+    margin-bottom: 30px;
+}
+
+#listeProduits {
+    width: 1800px;
+    margin: 0 auto;
+    padding-left: 60px;
+
+}
+
+/*------------------------------------------------------------------------------------------Élément en grille*/
+.grille#listeProduits{
+    background-image: url(image/backG.jpg);
+    background-repeat: repeat-y;
+}
+
+.grille #ajouter {
+    font-size: 2em;
+    color: firebrick;
+    display: block;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid black;
+}
+
+.grille article {
+    display: inline-block;
+    margin: 30px 10px;
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    text-align: center;
+    background: white;
+    transition: background 0.3s;
+    border-radius: 20px;
+    box-shadow: 2px 2px black;
+}
+
+.grille article img {
+    width: 300px;
+    height: 300px;
+}
+
+.grille article span, .liste article span{
+    color: red;
+    font-size: 1.3em;
+}
+
+/*------------------------------------------------------------------------------------------Élément en liste*/
+.liste article {
+    height: 100px;
+    border-bottom: 1px solid black;
+    padding: 0 20px;
+    background: white;
+    transition: background 0.3s;
+}
+
+.grille article:hover,
+.liste article:hover {
+    background-color: antiquewhite;
+}
+
+.liste header {
+    display: none;
+}
+
+.liste section {
+    display: inline-block;
+    width: 20%;
+}
+
+.liste article img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transition: width 0.5s, height 0.5s, margin 0.5s, z-index 0.5s;
+    margin-top: -28px;
+}
+
+.liste article img:hover {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: -80px;
+    margin-left: -80px;
+    z-index: 10;
+    background: white;
+}
+
+.liste #ajouter {
+    font-size: 2em;
+    color: firebrick;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+/*----------------------------------------------------------------------------------------------Navigation au bas*/
+#navigation {
+    padding-bottom: 100px;
+    text-align: center;
+    height: 100px;
+}
+
+#navigation a {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 10px;
+    width: 50px;
+    line-height: 50px;
+}
+
+#navigation a:hover {
+    background-color: blanchedalmond;
+}
+
+/*--------------------------------------------------------------------------------------------------Footer*/
+footer {
+    opacity: 0.4;
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-color: bisque;
+    line-height: 70px;
+    transition: opacity 0.5s;
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------------------------------------------Misc*/
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+    margin: 0 auto;
+}
+
+#grille,
+#liste {
+    font-weight: bold;
+    color: firebrick;
+}
+
+.active{
+    background-color: darkgoldenrod;
+}
+
+.rond{
+    border-radius: 25px;
+}

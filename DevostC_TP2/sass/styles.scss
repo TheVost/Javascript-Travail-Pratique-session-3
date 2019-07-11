@@ -1,0 +1,417 @@
+/*
+*   Auteur: Cédric Devost
+*   Date: 2018-12-03
+*   Description: Fichier SCSS pour le TP2
+*/
+
+
+/*VARIABLES POUR LA COULEUR DE CERTAINS ÉLÉMENTS*/
+
+$texte: white;
+$couleurHover: red;
+$foncee: #000d1a;
+$noir: black;
+$backSection: #687E5A;
+
+/*VARIABLES POUR LES BORDURES ET LES ARGUMENTS DES DISPLAYS*/
+
+$aucune: none;
+$bordure: solid;
+$dirColonne: column;
+$dirRangee: row;
+$alignAround: space-around;
+
+/*MIXIN POUR AFFECTER LE DISPLAY FLEX ET LA DIRECTION*/
+
+@mixin flex ($display, $direction) {
+    display: $display;
+    flex-direction: $direction;
+}
+
+/*MIXIN POUR AFECTER UN TEXTE SHADOW*/
+
+@mixin shadow {
+    text-shadow: 2px 2px $noir;
+}
+
+/*MIXIN POUR les transition 3D*/
+
+@mixin transformer ($duree, $style, $deg){
+    transform: rotateY($deg);
+    transition: $duree;
+    transform-style: $style;
+}
+
+/*******************************Début SCSS*/
+/*******************************Mise en page générale*/
+/*******************************Mise en page spécifique pour les fenêtre de plus de 960px également*/
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+    background-image: url('../images/backIndex.jpg');
+    background-repeat: no-repeat;
+    text-align: center;
+    @include flex(flex, $dirColonne);
+    color: $texte;
+}
+
+h1 {
+    font-size: 1.2em;
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: -20px;
+    @include shadow;
+}
+
+/*******************************Mise en page Navigation*/
+
+a {
+    color: $texte;
+}
+
+.active {
+    color: aquamarine;
+    text-shadow: 2px 2px $couleurHover;
+}
+
+ul {
+    list-style-type: $aucune;
+    @include flex(flex, $dirRangee);
+    justify-content: center;
+}
+
+li {
+    margin: 20px 20px;
+}
+
+li a {
+    text-decoration: $aucune;
+    display: inline-block;
+    height: 20px;
+    text-shadow: 0px 0px $texte;
+    transition: text-shadow 0.3s;
+}
+
+li a:hover {
+    color: aquamarine;
+    text-shadow: 2px 2px $couleurHover;
+    transition: text-shadow 0.3s;
+}
+
+/*******************************Mise en page Section 1*/
+
+main section:nth-child(1) h2 {
+    margin-bottom: 0px;
+}
+
+main section:nth-child(1) article p {
+    font-size: 1.3em;
+    margin: 0 55px 55px 55px;
+    @include shadow;
+}
+
+main section:nth-child(1) article a {
+    text-decoration: $aucune;
+    font-size: 2em;
+    background-color: aquamarine;
+    padding: 0 25px;
+    border-radius: 25px;
+    transition: padding 0.3s;
+}
+
+main section:nth-child(1) article a:hover {
+    color: $couleurHover;
+    padding: 10px 40px;
+    transition: padding 0.3s;
+}
+
+/*******************************Mise en page Section 2*/
+
+main section:nth-child(2) {
+    background-color: $backSection;
+    height: 100%;
+    padding: 1px 20px 50px;
+    @include shadow;
+}
+
+main section:nth-child(2) div {
+    @include flex(flex, $dirRangee);
+}
+
+/*******************************Mise en page Section 3*/
+
+main section:nth-child(3) {
+    color: $noir;
+    perspective: 1000px;
+}
+
+main section:nth-child(3) div:nth-child(1) {
+    @include flex(flex, $dirRangee);
+    text-align: left;
+}
+
+main section:nth-child(3) div:nth-child(1) div {
+    @include flex(flex, $dirColonne);
+    justify-content: flex-start;
+}
+
+main section:nth-child(3) div:nth-child(2) {
+    @include flex(flex, $dirRangee);
+    text-align: left;
+}
+
+main section:nth-child(3) div:nth-child(2) div {
+    @include flex(flex, $dirColonne);
+}
+
+main section:nth-child(3) div div aside {
+    @include flex(flex, $dirRangee);
+}
+
+/******************************************Section responsable de la ROTATION des images à l'hover*/
+
+main section:nth-child(3) div img {
+    width: 60px;
+    border-radius: 30px;
+    @include transformer (0.6s, preserve-3D, 0deg);
+}
+
+main section:nth-child(3) div img:hover {
+    @include transformer (0.6s, preserve-3D, 180deg);
+}
+
+/*******************************Mise en page pour les pages Tarifs et Chambre*/
+
+#chambre {
+    @include flex(flex, $dirRangee);
+    text-align: left;
+    background-color: rgba(104, 126, 90, 0.66);
+    padding: 0 0 20px 20px;
+    @include shadow;
+}
+
+#chambre div article div:nth-child(2) {
+    display: $aucune;
+}
+
+#chambre div article div:nth-child(1) {
+    display: flex;
+}
+
+main section:nth-child(1) div:nth-child(2) {
+    @include flex(flex, $dirColonne);
+    margin: 0 20px;
+}
+
+main section:nth-child(1) div:nth-child(2) ul {
+    @include flex(flex, $dirColonne);
+    padding: 0;
+    margin: 0;
+}
+
+main section:nth-child(1) div:nth-child(2) ul li {
+    padding: 0;
+    margin: 0 20px;
+    border-bottom: 1px $bordure $texte;
+}
+
+main section:nth-child(1) div:nth-child(2) aside {
+    @include flex(flex, $dirRangee);
+}
+
+/*******************************Mise en page concernant les tableaux*/
+
+table:nth-child(1) {
+    border: 1px $bordure $noir;
+    text-shadow: none;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+th,
+td:first-child {
+    border-right: 1px $bordure $noir;
+    border-bottom: 1px $bordure $noir;
+    background-color: beige;
+    color: $foncee;
+}
+
+tr:nth-child(1n+1) {
+    background-color: $foncee;
+}
+
+/*******************************Mise en page concernant la page Contact*/
+
+#contact {
+    width: 100px;
+    transform: rotate(90deg);
+}
+
+/*******************************Mise en page du Footer*/
+
+footer {
+    background-color: $foncee;
+}
+
+footer section:nth-child(1) {
+    @include flex(flex, $dirRangee);
+    justify-content: $alignAround;
+    padding-bottom: 10px;
+}
+
+footer section:nth-child(2) {
+    @include flex(flex, $dirRangee);
+    justify-content: $alignAround;
+    padding-top: 20px;
+    border-bottom: 1px $bordure $texte;
+    border-top: 1px $bordure $texte;
+}
+
+footer section:nth-child(2) aside {
+    width: 300px;
+    @include flex(flex, $dirColonne);
+    align-content: space-between;
+}
+
+footer section:nth-child(2) aside p {
+    border-bottom: 1px $bordure $texte;
+}
+
+footer section:nth-child(2) aside a {
+    border-right: 1px $bordure $texte;
+    text-align: left;
+}
+
+footer section:nth-child(2) aside a:hover {
+    border-right: 1px $bordure $foncee;
+}
+
+footer section:nth-child(2) aside p:nth-child(3) {
+    border-bottom: $aucune;
+}
+
+/*******************************Mise en page spécifique pour les fenêtre de maximum 960px*/
+
+@media screen and (max-width: 960px) {
+
+    /*******************************Mise en page générale*/
+
+    main section:nth-child(1) {
+        background-color: rgba(104, 126, 90, 0.66);
+    }
+
+    /*******************************Mise en page Navigation*/
+
+    ul {
+        flex-direction: $dirColonne;
+    }
+
+    /*******************************Mise en page Pages chambres et tarifs*/
+
+    #chambre {
+        flex-direction: $dirColonne;
+    }
+
+    #chambre div article div:nth-child(1) {
+        display: $aucune;
+    }
+
+    #chambre div article div:nth-child(2) {
+        @include flex(flex, $dirRangee);
+        justify-content: $alignAround;
+    }
+
+    #chambre div:nth-child(2) {
+        flex-direction: $dirRangee;
+    }
+
+    /*******************************Mise en page des tableaux*/
+
+    #chambre div article div:nth-child(2) table td {
+        width: 200px;
+    }
+
+    #chambre div article div:nth-child(2) table {
+        border: $aucune;
+
+    }
+
+    table:nth-child(2) {
+        border: 1px $bordure $noir;
+        text-shadow: $aucune;
+    }
+
+    table:nth-child(3) {
+        border: 1px $bordure $noir;
+        text-shadow: $aucune;
+    }
+
+    /*******************************Mise en page de la Section 2*/
+
+    main section:nth-child(2) div {
+        flex-direction: $dirColonne;
+    }
+
+    /*******************************Mise en page de la Section 3*/
+
+    main section:nth-child(3) div:nth-child(1) {
+        flex-direction: $dirColonne;
+    }
+
+    main section:nth-child(3) div:nth-child(2) {
+        flex-direction: $dirColonne;
+    }
+
+    /*******************************Mise en page du Footer*/
+
+    footer section:nth-child(1) {
+        flex-direction: $dirColonne;
+    }
+}
+
+/*******************************Mise en page spécifique pour les fenêtre de maximum 480px*/
+
+@media screen and (max-width: 480px) {
+
+    /*******************************Mise en page Pages chambres et tarifs*/
+
+    #chambre div article div:nth-child(2) {
+        flex-direction: $dirColonne;
+    }
+
+    #chambre div:nth-child(2) aside {
+        flex-direction: $dirColonne;
+    }
+
+    #chambre div:nth-child(2) {
+        flex-direction: $dirColonne;
+    }
+
+    /****************************** Resonsable de l'Arrêt de la rotation 3D*/
+
+    main section:nth-child(3) div img:hover {
+        transform: rotateY(0deg);
+    }
+
+    /*******************************Mise en page Footer*/
+
+    footer section:nth-child(2) {
+        flex-direction: $dirColonne;
+        padding-left: 70px;
+    }
+}

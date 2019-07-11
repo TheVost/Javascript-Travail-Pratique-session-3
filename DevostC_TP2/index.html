@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+//  Auteur: Cédric Devost
+//  Description: Fichier html pour le TP2 du cours de JS2
+//  Fichier : index.html
+//  Date: 2019-04-21
+-->
+<html lang="fr">
+
+    <!-- Head -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Magasin de MAmadou">
+        <meta name="keywords" content="x, y">
+        <meta name="author" content="Cédric Devost">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+        <!-- Chargement des fichiers externes pour le bon fonctionnement du code -->
+        <script type="text/javascript" src="data/produit.js"></script>
+        <script type="text/javascript" src="module.js"></script>
+        <script>
+            
+            //Charge ce script au chargement de la page
+            window.onload = function() {
+
+                //Lance la fonction d'Affichage du module
+                MonApp.afficher();
+
+                //ajout d'eventListeners pour chnanger le mode d'Affichage à grille
+                var grille = document.getElementById('grille');
+                grille.addEventListener('click', function() {
+                    MonApp.setModeAffichage('grille');
+                });
+
+                //ajout d'eventListeners pour chnanger le mode d'Affichage à liste
+                var liste = document.getElementById('liste');
+                liste.addEventListener('click', function() {
+                    MonApp.setModeAffichage('liste');
+                });
+
+                //ajout d'eventListeners pour chnanger le nombre de pages
+                var select = document.getElementById('select');
+                select.addEventListener('change', function() {
+                    MonApp.setNombreParPage();
+                });
+            }
+        </script>
+        
+        <title>Magasin de Mamadou</title>
+        
+    </head>
+
+    <!-- Body -->
+    <body>
+        <header id="tete">
+            <h1>Magasin de Mamadou</h1>
+            <nav>
+
+                <!-- Liens pour changer le mode d'affichage -->
+                <div>Affichage : <a id="grille" href="#grille" title="grille">Grille</a> / <a id="liste" href="#liste" title="liste">Liste</a>
+                    <br><br>
+                    <form>
+
+                        <!-- Select pour changer le nombre d'item par page -->
+                        <label>Nombre de produits :</label>
+                        <select id="select">
+                            <option>Tous</option>
+                            <option>12</option>
+                            <option>24</option>
+                            <option>36</option>
+                        </select>
+                    </form>
+                </div>
+
+                <!-- Utile pour montrer le nombre d'item dans le panier -->
+                <div>Panier : (<span id="panierSpan">0</span>)</div>
+                
+            </nav>
+        </header>
+        <main>
+
+            <!-- Artcile pout l'Affichage des items -->
+            <article id="listeProduits" class="grille"></article>
+
+            <!-- Div qui affichera les pages et les boutons suivant et précédent -->
+            <div id="navigation"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer>Cédric Devost&copy; 2019</footer>
+    </body>
+
+</html>
